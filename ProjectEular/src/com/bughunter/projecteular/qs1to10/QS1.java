@@ -16,6 +16,13 @@ public class QS1 {
 		 long lcm=fact1*fact2;
 		 long limit=999;
 		 long sum=0;
+
+			/***
+			 * Logic: take all the multiples of lcm=15
+			 * + take all the multiple of 3 except those who are divisible by 15
+			 * + take all the multiple of 5 except those who are divisible by 15
+			 */
+		 
 		 for(long i=lcm;i<=limit;i+=lcm) {
 			 sum+=i%lcm==0?i:0;
 		 }
@@ -28,19 +35,19 @@ public class QS1 {
 		 System.out.println(sum);
 		 
 		 //method2
+			/***
+			 * Logic: let sum_n= sum of natural numbers from 1 to n = (n*(n+1))/2
+			 * so divisible by x = x*sum_n
+			 * hence output=getSumDivisibleBy(999,3)+getSumDivisibleBy(999,5)-getSumDivisibleBy(999,15)
+			 * @param l
+			 * @return
+			 */
 		 sum=getSumDivisibleBy(limit/fact1,fact1)+getSumDivisibleBy(limit/fact2,fact2)-getSumDivisibleBy(limit/lcm,lcm);
 		 
 		 System.out.println(sum);
 	}
 	
 	
-	/***
-	 * Logic: let sum_n= sum of natural numbers from 1 to n = (n*(n+1))/2
-	 * so divisible by x = x*sum_n
-	 * hence output=getSumDivisibleBy(999,3)+getSumDivisibleBy(999,5)-getSumDivisibleBy(999,15)
-	 * @param l
-	 * @return
-	 */
 	public static long getSumDivisibleBy(long limit,long div) {
 		return div*(limit*(limit+1))/2;
 	}
