@@ -16,7 +16,7 @@ public class QS3 {
 		long maxFactor = num/2;//Logic:all the factors of a number n,except 1 & n, lies between 2 to n/2
 		long minFactor = 2;
 		//Logic:getting the factors from lower side & upper side at the same time
-		//Time Complexity:O(n*n)
+		//Time Complexity:O(nlogn)
 		for(;minFactor<=maxFactor;minFactor++) {
 			if(num%minFactor==0) { 
 				
